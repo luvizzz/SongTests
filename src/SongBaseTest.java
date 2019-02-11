@@ -8,4 +8,9 @@ public class SongBaseTest {
     public void firstTest(){
         assertEquals(1,1);
     }
+
+    @Test
+    public void secondTest(){
+        assertEquals(2,2);
+    }
 }
