@@ -1,7 +1,7 @@
 package main.test.runners;
 
 import com.jayway.restassured.response.Response;
-import main.tests.steps.BaseSteps;
+import main.test.steps.BaseSteps;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
