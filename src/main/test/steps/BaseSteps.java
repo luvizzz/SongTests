@@ -9,9 +9,9 @@ public class BaseSteps {
 
     public Response getSite(String url){
         return RestAssured.given()
-                .when()
+                .when().log().all()
                 .get(url)
-                .then()
+                .then().log().all()
                 .extract()
                 .response();
     }
