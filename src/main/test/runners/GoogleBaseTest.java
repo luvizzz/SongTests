@@ -6,6 +6,7 @@ import main.test.utils.ReadConfigProperties;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 import static org.apache.http.HttpStatus.SC_OK;
@@ -22,7 +23,7 @@ public class GoogleBaseTest {
     private ReadConfigProperties readConfigProperties;
 
     @BeforeClass
-    public void setup(){
+    public void setup() throws UnsupportedEncodingException {
         readConfigProperties = new ReadConfigProperties();
         Map<String, String> properties = readConfigProperties.getConfigProperties(null);
 
@@ -30,6 +31,8 @@ public class GoogleBaseTest {
         PASSWORD = properties.get("password");
 
         songBaseSteps = new BaseSteps();
+
+        System.out.println("Token " + songBaseSteps.getAccessTokenFromSpotify(USERNAME, PASSWORD));
     }
 
     @Test
