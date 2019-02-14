@@ -1,4 +1,4 @@
-package main.test.runners;
+package main.test.utils;
 
 import java.io.*;
 import java.util.HashMap;
