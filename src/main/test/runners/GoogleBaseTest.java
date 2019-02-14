@@ -17,6 +17,7 @@ public class GoogleBaseTest {
     private static final String GOOGLE_URL = "http://www.google.com";
     private static String USERNAME;
     private static String PASSWORD;
+    private String CURRENT_TOKEN;
 
     private BaseSteps songBaseSteps;
 
@@ -32,7 +33,7 @@ public class GoogleBaseTest {
 
         songBaseSteps = new BaseSteps();
 
-        System.out.println("Token " + songBaseSteps.getAccessTokenFromSpotify(USERNAME, PASSWORD));
+        CURRENT_TOKEN = songBaseSteps.getAccessTokenFromSpotify(USERNAME, PASSWORD);
     }
 
     @Test
@@ -43,6 +44,12 @@ public class GoogleBaseTest {
     @Test
     public void testGetGoogleAndValidateResponseCode(){
         Response response = songBaseSteps.getSite(GOOGLE_URL);
+        assertEquals(response.getStatusCode(), SC_OK, "Expected OK response code not returned");
+    }
+
+    @Test
+    public void testGetRedHotChilliPeppers(){
+        Response response = songBaseSteps.getArtistInfo(CURRENT_TOKEN, "Red Hot Chilli Peppers");
         assertEquals(response.getStatusCode(), SC_OK, "Expected OK response code not returned");
     }
 }
