@@ -1,6 +1,8 @@
 package main.test.utils;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -17,7 +19,7 @@ public class ReadConfigProperties {
         InputStream input = null;
         Map<String, String> properties = new HashMap<>();
 
-        if (filePath.isEmpty())
+        if (filePath == null)
             filePath = defaultPath;
 
         try {
