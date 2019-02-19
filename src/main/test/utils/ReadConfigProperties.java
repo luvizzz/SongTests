@@ -13,14 +13,15 @@ public class ReadConfigProperties {
 
     public ReadConfigProperties(){}
 
+    public Map<String,String> getConfigProperties() {
+        return getConfigProperties(defaultPath);
+    }
+
     public Map<String,String> getConfigProperties(String filePath) {
 
         Properties prop = new Properties();
         InputStream input = null;
         Map<String, String> properties = new HashMap<>();
-
-        if (filePath == null)
-            filePath = defaultPath;
 
         try {
 
@@ -28,8 +29,9 @@ public class ReadConfigProperties {
 
             prop.load(input);
 
-            properties.put("username", prop.getProperty("username"));
-            properties.put("password", prop.getProperty("password"));
+            for(PropertiesList list : PropertiesList.values()){
+                properties.put(list.toString(), prop.getProperty(list.toString()));
+            }
 
 
         } catch (IOException ex) {

@@ -3,7 +3,7 @@
 <suite name="All">
     <test name="Regression">
         <classes>
-            <class name="main.test.runners.GoogleBaseTest"/>
+            <class name="main.test.runners.SpotifyBaseTests"/>
         </classes>
     </test>
 </suite>
