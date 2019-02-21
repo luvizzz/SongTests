@@ -23,6 +23,9 @@ public class ReadConfigProperties {
         InputStream input = null;
         Map<String, String> properties = new HashMap<>();
 
+        if (filePath == null)
+            filePath = defaultPath;
+
         try {
 
             input = new FileInputStream(filePath);
