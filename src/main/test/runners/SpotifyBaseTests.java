@@ -3,7 +3,7 @@ package main.test.runners;
 import main.test.steps.BaseSteps;
 import main.test.utils.Logger;
 import main.test.utils.ReadConfigProperties;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
@@ -12,14 +12,14 @@ public class SpotifyBaseTests {
 
     private static String USERNAME;
     private static String PASSWORD;
-    String CURRENT_TOKEN;
+    static String CURRENT_TOKEN;
 
-    BaseSteps songBaseSteps = new BaseSteps();;
-    Logger logger = new Logger();
+    BaseSteps songBaseSteps;
+    Logger logger;
 
     private ReadConfigProperties readConfigProperties;
 
-    @BeforeClass
+    @BeforeSuite
     public void setup() throws UnsupportedEncodingException {
         readConfigProperties = new ReadConfigProperties();
         Map<String, String> properties = readConfigProperties.getConfigProperties();
@@ -27,6 +27,8 @@ public class SpotifyBaseTests {
         USERNAME = properties.get("username");
         PASSWORD = properties.get("password");
 
+        songBaseSteps = new BaseSteps();
+        logger = new Logger();
         CURRENT_TOKEN = songBaseSteps.getAccessTokenFromSpotify(USERNAME, PASSWORD);
     }
 }
