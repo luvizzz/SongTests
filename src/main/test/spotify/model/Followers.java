@@ -10,6 +10,8 @@ public class Followers {
     
     int total;
 
+    public Followers() { }
+
     public Followers(@Nullable String href, int total) {
         this.href = href;
         this.total = total;

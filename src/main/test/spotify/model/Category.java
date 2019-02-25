@@ -28,6 +28,7 @@ public class Category {
 
     public Category(HashMap<String, Object> category) {
         this.icons = new ArrayList<>();
+
         this.href = category.get("href").toString();
         this.icons = (List<Image>) category.get("icons");
         this.id = category.get("id").toString();

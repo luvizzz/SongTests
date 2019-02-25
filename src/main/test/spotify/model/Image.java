@@ -8,9 +8,7 @@ public class Image {
     String url;
     int width;
 
-    public Image(){
-
-    }
+    public Image() { }
 
     public Image(int height, String url, int width){
         this.height = height;
