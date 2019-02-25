@@ -14,6 +14,8 @@ public class Artist {
     String uri;
     int popularity;
 
+    public Artist(){ }
+
     public Artist(
             ExternalURL external_urls,
             Followers followers,
@@ -36,23 +38,6 @@ public class Artist {
         this.type = type;
         this.uri = uri;
     }
-
-    /*
-    public Artist(HashMap<String, Object> artist) {
-        this.genres = new ArrayList<>();
-        this.images = new ArrayList<>();
-
-        //this.external_urls = artist.get("external_urls.spotify").as(ExternalURL.class);
-        this.followers = new Followers(artist.get("followers.href").toString(), (int) artist.get("followers.total"));
-        this.genres = (List<String>) artist.get("genres");
-        this.href = artist.get("href").toString();
-        this.id = artist.get("id").toString();
-        this.images = (List<Image>) artist.get("images");
-        this.name = artist.get("name").toString();
-        this.popularity = (int) artist.get("popularity");
-        this.type = artist.get("type").toString();
-        this.uri = artist.get("uri").toString();
-    }*/
 
     public ExternalURL getExternal_urls() {
         return external_urls;
@@ -132,5 +117,9 @@ public class Artist {
 
     public void setUri(String uri) {
         this.uri = uri;
+    }
+
+    public boolean compareIdAndName(Artist artist2) {
+        return (this.id.equals(artist2.getId()) && this.name.equals(artist2.getName()));
     }
 }

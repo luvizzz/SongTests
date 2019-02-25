@@ -5,6 +5,8 @@ import java.util.HashMap;
 public class ExternalURL {
     String spotify;
 
+    public ExternalURL() { }
+
     public ExternalURL(String url) {
         this.spotify = url;
     }
